@@ -4,6 +4,8 @@ var fs = require('fs');
 var cli = process.argv.slice(2);
 
 require.extensions['.vtt'] = function (module, filename) {
+    console.log('ok weird');
+    console.log(filename);
     module.exports = fs.readFileSync(filename, 'utf8');
 };
 
