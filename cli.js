@@ -3,14 +3,8 @@
 var fs = require('fs');
 var cli = process.argv.slice(2);
 
-require.extensions['.vtt'] = function (module, filename) {
-    console.log('ok weird');
-    console.log(filename);
-    module.exports = fs.readFileSync(filename, 'utf8');
-};
-
 var lineNr = 0;
-var input = require("./test.vtt");
+var input = fs.readFileSync("./"+cli[0], 'utf8');
 
 input = input
   .replace(/([\d]{2}:[\d]{2}:[\d]{2}.[\d]{3} -->)/g, "ROBINISCOOL\r\n$1")
