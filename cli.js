@@ -16,7 +16,7 @@ input = input
     return ++lineNr;
   });
   
-fs.writeFile(args[0].replace('.vtt', '.srt'), input, (err) => {
+fs.writeFile(cli[0].replace('.vtt', '.srt'), input, (err) => {
   if (err) throw err;
   console.log('It\'s saved!');
 });
