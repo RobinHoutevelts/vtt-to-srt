@@ -10,7 +10,7 @@ require.extensions['.vtt'] = function (module, filename) {
 };
 
 var lineNr = 0;
-var input = require("./"+cli[0]);
+var input = require("./test.vtt");
 
 input = input
   .replace(/([\d]{2}:[\d]{2}:[\d]{2}.[\d]{3} -->)/g, "ROBINISCOOL\r\n$1")
@@ -22,7 +22,7 @@ input = input
     return ++lineNr;
   });
   
-fs.writeFile(args[0].replace('.vtt', '.srt'), vttFile, (err) => {
+fs.writeFile(args[0].replace('.vtt', '.srt'), input, (err) => {
   if (err) throw err;
   console.log('It\'s saved!');
 });
